@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastLateBoundGenerics", "FastLateBoundGenerics\FastLateBoundGenerics.csproj", "{841B3E42-822E-42CC-B584-03D8894F5DC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastLateBound", "FastLateBound\FastLateBound.csproj", "{841B3E42-822E-42CC-B584-03D8894F5DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "ClassLibrary1\Plugin.csproj", "{5D436410-35B8-496E-8F42-FC218C4DF2C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{5D436410-35B8-496E-8F42-FC218C4DF2C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

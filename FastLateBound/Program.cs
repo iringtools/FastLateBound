@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using Plugin;
 using System.ComponentModel.Composition.Hosting;
 
 namespace FastLateBoundGenerics
@@ -15,14 +14,15 @@ namespace FastLateBoundGenerics
         [Import]
         Lazy<IPerson> Person;
 
-        private readonly CompositionContainer _container;
+        [Import]
+        Lazy<IDog> Dog;
 
-        public readonly IPerson mefPerson = this.Person.Value;
+        private readonly CompositionContainer _container;
 
         private Program()
         {
             AggregateCatalog catalog = new AggregateCatalog();
-            DirectoryCatalog dirCatalog = new DirectoryCatalog(Environment.CurrentDirectory);
+            DirectoryCatalog dirCatalog = new DirectoryCatalog("..\\..\\..\\Plugin\\bin\\Debug");
             catalog.Catalogs.Add(dirCatalog);
             _container = new CompositionContainer(catalog);
 
@@ -65,8 +65,8 @@ namespace FastLateBoundGenerics
 
             #region direct call 
             int i = times;
-            IPerson person = new Plugin.Rob();
-            IDog dog = new Plugin.Shadow();
+            IPerson person = new Library.Joe();
+            IDog dog = new Library.Spot();
             DateTime start = DateTime.Now;
 
             while (i-- > 0)
@@ -103,6 +103,8 @@ namespace FastLateBoundGenerics
             start = DateTime.Now;
 
             while (i-- > 0)
+                dog = program.Dog.Value;
+
                 result = program.Person.Value.Walk(dog);
 
             Console.WriteLine("MEF - {0}", (DateTime.Now - start).TotalMilliseconds);
